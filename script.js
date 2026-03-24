@@ -1,4 +1,67 @@
-let planoContas = [];
+let planoContas = [
+    // --- ATIVO CIRCULANTE (C1 / C2) [cite: 218] ---
+    { nome: "Caixa", grupo: "Ativo", natureza: "Devedora" },
+    { nome: "Bancos Conta Movimento", grupo: "Ativo", natureza: "Devedora" },
+    { nome: "Aplicações Financeiras", grupo: "Ativo", natureza: "Devedora" }, [cite: 258]
+    { nome: "Clientes / Duplicatas a Receber", grupo: "Ativo", natureza: "Devedora" },
+    { nome: "(-) PCLD / PDD", grupo: "Ativo", natureza: "Credora" }, 
+    { nome: "Estoque de Mercadorias", grupo: "Ativo", natureza: "Devedora" }, [cite: 22, 269]
+    { nome: "Adiantamento a Fornecedores", grupo: "Ativo", natureza: "Devedora" },
+    
+    // --- INSTRUMENTOS FINANCEIROS (C4 - CPC 48 / CURTO PRAZO) [cite: 31, 293, 296] ---
+    { nome: "IFDRE - Destinado à Negociação (VJR)", grupo: "Ativo", natureza: "Devedora" }, [cite: 306]
+    { nome: "IFPL - Destinado à Venda (VJRA)", grupo: "Ativo", natureza: "Devedora" }, [cite: 301]
+    { nome: "MTV - Mantido até o Vencimento (Custo Amortizado)", grupo: "Ativo", natureza: "Devedora" }, [cite: 308]
+
+    // --- ATIVO NÃO CIRCULANTE (C2 / C3 / C4) [cite: 219] ---
+    { nome: "Realizável a Longo Prazo", grupo: "Ativo", natureza: "Devedora" }, [cite: 220]
+    { nome: "Investimentos: Coligadas", grupo: "Ativo", natureza: "Devedora" }, [cite: 37, 175]
+    { nome: "Investimentos: Controladas", grupo: "Ativo", natureza: "Devedora" }, [cite: 37, 175]
+    { nome: "Propriedades para Investimento", grupo: "Ativo", natureza: "Devedora" }, [cite: 248, 251]
+    { nome: "Imobilizado: Veículos", grupo: "Ativo", natureza: "Devedora" }, [cite: 16]
+    { nome: "Imobilizado: Máquinas e Equipamentos", grupo: "Ativo", natureza: "Devedora" }, [cite: 16]
+    { nome: "(-) Depreciação Acumulada", grupo: "Ativo", natureza: "Credora" }, [cite: 10, 226]
+    { nome: "Intangível", grupo: "Ativo", natureza: "Devedora" }, [cite: 16, 209]
+    { nome: "Despesa Diferida", grupo: "Ativo", natureza: "Devedora" },
+
+    // --- PASSIVO CIRCULANTE (C1 / C2 / C3) [cite: 232] ---
+    { nome: "Fornecedores", grupo: "Passivo", natureza: "Credora" }, [cite: 233]
+    { nome: "Empréstimos e Financiamentos (CP)", grupo: "Passivo", natureza: "Credora" }, [cite: 234]
+    { nome: "Arrendamento Mercantil Financeiro (CP)", grupo: "Passivo", natureza: "Credora" }, [cite: 238]
+    { nome: "(-) Juros a Transcorrer (CP)", grupo: "Passivo", natureza: "Devedora" }, [cite: 235]
+    { nome: "Salários a Pagar", grupo: "Passivo", natureza: "Credora" },
+    { nome: "Impostos a Recolher", grupo: "Passivo", natureza: "Credora" }, [cite: 240]
+    { nome: "Dividendos a Pagar", grupo: "Passivo", natureza: "Credora" },
+
+    // --- PASSIVO NÃO CIRCULANTE (C2 / C3 / C4) ---
+    { nome: "Empréstimos e Financiamentos (LP)", grupo: "Passivo", natureza: "Credora" }, [cite: 234]
+    { nome: "Arrendamento Mercantil Financeiro (LP)", grupo: "Passivo", natureza: "Credora" }, [cite: 238]
+    { nome: "(-) Juros a Transcorrer (LP)", grupo: "Passivo", natureza: "Devedora" }, [cite: 235]
+    { nome: "Tributos Diferidos", grupo: "Passivo", natureza: "Credora" },
+
+    // --- PATRIMÔNIO LÍQUIDO (C1 / C3 / C4) [cite: 241] ---
+    { nome: "Capital Social Subscrito", grupo: "PL", natureza: "Credora" }, [cite: 241, 242]
+    { nome: "(-) Capital a Integralizar", grupo: "PL", natureza: "Devedora" }, [cite: 243]
+    { nome: "Reserva Legal", grupo: "PL", natureza: "Credora" }, [cite: 244]
+    { nome: "Reserva Estatutária", grupo: "PL", natureza: "Credora" }, [cite: 244]
+    { nome: "Reserva de Contingências", grupo: "PL", natureza: "Credora" }, [cite: 244]
+    { nome: "Reserva de Incentivos Fiscais", grupo: "PL", natureza: "Credora" }, [cite: 244]
+    { nome: "Ajuste de Avaliação Patrimonial (AAP)", grupo: "PL", natureza: "Ambas" }, [cite: 305]
+    { nome: "Prejuízos Acumulados", grupo: "PL", natureza: "Devedora" }, [cite: 245]
+
+    // --- RESULTADO (DRE) ---
+    { nome: "Receita de Vendas", grupo: "Receita", natureza: "Credora" },
+    { nome: "Receita de Juros Ativos", grupo: "Receita", natureza: "Credora" }, [cite: 322]
+    { nome: "Receita de Reversão de PDD", grupo: "Receita", natureza: "Credora" },
+    { nome: "Ganho com Valorização (VJR)", grupo: "Receita", natureza: "Credora" }, [cite: 327]
+    { nome: "CMV (Custo da Mercadoria Vendida)", grupo: "Despesa", natureza: "Devedora" },
+    { nome: "Despesa com PDD / PCLD", grupo: "Despesa", natureza: "Devedora" },
+    { nome: "Despesa de Aluguel", grupo: "Despesa", natureza: "Devedora" },
+    { nome: "Perda por Desvalorização (Impairment)", grupo: "Despesa", natureza: "Devedora" } [cite: 54, 309]
+];
+
+let lancamentos = [];
+// ... resto do seu código
 let lancamentos = [];
 
 function toggleUnico(id, nome) {
