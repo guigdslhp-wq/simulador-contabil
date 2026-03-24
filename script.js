@@ -1,67 +1,54 @@
 let planoContas = [
-    // --- ATIVO CIRCULANTE (C1 / C2) [cite: 218] ---
-    { nome: "Caixa", grupo: "Ativo", natureza: "Devedora" },
-    { nome: "Bancos Conta Movimento", grupo: "Ativo", natureza: "Devedora" },
-    { nome: "Aplicações Financeiras", grupo: "Ativo", natureza: "Devedora" }, [cite: 258]
-    { nome: "Clientes / Duplicatas a Receber", grupo: "Ativo", natureza: "Devedora" },
-    { nome: "(-) PCLD / PDD", grupo: "Ativo", natureza: "Credora" }, 
-    { nome: "Estoque de Mercadorias", grupo: "Ativo", natureza: "Devedora" }, [cite: 22, 269]
-    { nome: "Adiantamento a Fornecedores", grupo: "Ativo", natureza: "Devedora" },
-    
-    // --- INSTRUMENTOS FINANCEIROS (C4 - CPC 48 / CURTO PRAZO) [cite: 31, 293, 296] ---
-    { nome: "IFDRE - Destinado à Negociação (VJR)", grupo: "Ativo", natureza: "Devedora" }, [cite: 306]
-    { nome: "IFPL - Destinado à Venda (VJRA)", grupo: "Ativo", natureza: "Devedora" }, [cite: 301]
-    { nome: "MTV - Mantido até o Vencimento (Custo Amortizado)", grupo: "Ativo", natureza: "Devedora" }, [cite: 308]
+    // --- ATIVO CIRCULANTE ---
+    { nome: "CAIXA", grupo: "Ativo Circulante", natureza: "Devedora" },
+    { nome: "BANCOS CONTA MOVIMENTO", grupo: "Ativo Circulante", natureza: "Devedora" },
+    { nome: "APLICAÇÕES FINANCEIRAS", grupo: "Ativo Circulante", natureza: "Devedora" },
+    { nome: "CLIENTES / DUPLICATAS A RECEBER", grupo: "Ativo Circulante", natureza: "Devedora" },
+    { nome: "(-) PCLD / PDD", grupo: "Ativo Circulante", natureza: "Credora" },
+    { nome: "ESTOQUE DE MERCADORIAS", grupo: "Ativo Circulante", natureza: "Devedora" },
+    { nome: "IFDRE - VJ (NEGOCIAÇÃO)", grupo: "Ativo Circulante", natureza: "Devedora" },
+    { nome: "IFPL - VJRA (VENDA)", grupo: "Ativo Circulante", natureza: "Devedora" },
+    { nome: "MTV - CUSTO AMORTIZADO", grupo: "Ativo Circulante", natureza: "Devedora" },
 
-    // --- ATIVO NÃO CIRCULANTE (C2 / C3 / C4) [cite: 219] ---
-    { nome: "Realizável a Longo Prazo", grupo: "Ativo", natureza: "Devedora" }, [cite: 220]
-    { nome: "Investimentos: Coligadas", grupo: "Ativo", natureza: "Devedora" }, [cite: 37, 175]
-    { nome: "Investimentos: Controladas", grupo: "Ativo", natureza: "Devedora" }, [cite: 37, 175]
-    { nome: "Propriedades para Investimento", grupo: "Ativo", natureza: "Devedora" }, [cite: 248, 251]
-    { nome: "Imobilizado: Veículos", grupo: "Ativo", natureza: "Devedora" }, [cite: 16]
-    { nome: "Imobilizado: Máquinas e Equipamentos", grupo: "Ativo", natureza: "Devedora" }, [cite: 16]
-    { nome: "(-) Depreciação Acumulada", grupo: "Ativo", natureza: "Credora" }, [cite: 10, 226]
-    { nome: "Intangível", grupo: "Ativo", natureza: "Devedora" }, [cite: 16, 209]
-    { nome: "Despesa Diferida", grupo: "Ativo", natureza: "Devedora" },
+    // --- ATIVO NÃO CIRCULANTE ---
+    { nome: "REALIZÁVEL A LONGO PRAZO", grupo: "Ativo Não Circulante", natureza: "Devedora" },
+    { nome: "INVESTIMENTOS: COLIGADAS", grupo: "Ativo Não Circulante", natureza: "Devedora" },
+    { nome: "INVESTIMENTOS: CONTROLADAS", grupo: "Ativo Não Circulante", natureza: "Devedora" },
+    { nome: "PROPRIEDADES PARA INVESTIMENTO", grupo: "Ativo Não Circulante", natureza: "Devedora" },
+    { nome: "IMOBILIZADO: VEÍCULOS", grupo: "Ativo Não Circulante", natureza: "Devedora" },
+    { nome: "(-) DEPRECIAÇÃO ACUMULADA", grupo: "Ativo Não Circulante", natureza: "Credora" },
+    { nome: "INTANGÍVEL", grupo: "Ativo Não Circulante", natureza: "Devedora" },
 
-    // --- PASSIVO CIRCULANTE (C1 / C2 / C3) [cite: 232] ---
-    { nome: "Fornecedores", grupo: "Passivo", natureza: "Credora" }, [cite: 233]
-    { nome: "Empréstimos e Financiamentos (CP)", grupo: "Passivo", natureza: "Credora" }, [cite: 234]
-    { nome: "Arrendamento Mercantil Financeiro (CP)", grupo: "Passivo", natureza: "Credora" }, [cite: 238]
-    { nome: "(-) Juros a Transcorrer (CP)", grupo: "Passivo", natureza: "Devedora" }, [cite: 235]
-    { nome: "Salários a Pagar", grupo: "Passivo", natureza: "Credora" },
-    { nome: "Impostos a Recolher", grupo: "Passivo", natureza: "Credora" }, [cite: 240]
-    { nome: "Dividendos a Pagar", grupo: "Passivo", natureza: "Credora" },
+    // --- PASSIVO CIRCULANTE ---
+    { nome: "FORNECEDORES", grupo: "Passivo Circulante", natureza: "Credora" },
+    { nome: "EMPRÉSTIMOS E FINANCIAMENTOS (CP)", grupo: "Passivo Circulante", natureza: "Credora" },
+    { nome: "ARRENDAMENTO MERCANTIL (CP)", grupo: "Passivo Circulante", natureza: "Credora" },
+    { nome: "(-) JUROS A TRANSCORRER (CP)", grupo: "Passivo Circulante", natureza: "Devedora" },
+    { nome: "DIVIDENDOS A PAGAR", grupo: "Passivo Circulante", natureza: "Credora" },
 
-    // --- PASSIVO NÃO CIRCULANTE (C2 / C3 / C4) ---
-    { nome: "Empréstimos e Financiamentos (LP)", grupo: "Passivo", natureza: "Credora" }, [cite: 234]
-    { nome: "Arrendamento Mercantil Financeiro (LP)", grupo: "Passivo", natureza: "Credora" }, [cite: 238]
-    { nome: "(-) Juros a Transcorrer (LP)", grupo: "Passivo", natureza: "Devedora" }, [cite: 235]
-    { nome: "Tributos Diferidos", grupo: "Passivo", natureza: "Credora" },
+    // --- PASSIVO NÃO CIRCULANTE ---
+    { nome: "EMPRÉSTIMOS E FINANCIAMENTOS (LP)", grupo: "Passivo Não Circulante", natureza: "Credora" },
+    { nome: "ARRENDAMENTO MERCANTIL (LP)", grupo: "Passivo Não Circulante", natureza: "Credora" },
+    { nome: "(-) JUROS A TRANSCORRER (LP)", grupo: "Passivo Não Circulante", natureza: "Devedora" },
 
-    // --- PATRIMÔNIO LÍQUIDO (C1 / C3 / C4) [cite: 241] ---
-    { nome: "Capital Social Subscrito", grupo: "PL", natureza: "Credora" }, [cite: 241, 242]
-    { nome: "(-) Capital a Integralizar", grupo: "PL", natureza: "Devedora" }, [cite: 243]
-    { nome: "Reserva Legal", grupo: "PL", natureza: "Credora" }, [cite: 244]
-    { nome: "Reserva Estatutária", grupo: "PL", natureza: "Credora" }, [cite: 244]
-    { nome: "Reserva de Contingências", grupo: "PL", natureza: "Credora" }, [cite: 244]
-    { nome: "Reserva de Incentivos Fiscais", grupo: "PL", natureza: "Credora" }, [cite: 244]
-    { nome: "Ajuste de Avaliação Patrimonial (AAP)", grupo: "PL", natureza: "Ambas" }, [cite: 305]
-    { nome: "Prejuízos Acumulados", grupo: "PL", natureza: "Devedora" }, [cite: 245]
+    // --- PATRIMÔNIO LÍQUIDO ---
+    { nome: "CAPITAL SOCIAL SUBSCRITO", grupo: "Patrimônio Líquido", natureza: "Credora" },
+    { nome: "(-) CAPITAL A INTEGRALIZAR", grupo: "Patrimônio Líquido", natureza: "Devedora" },
+    { nome: "RESERVA LEGAL", grupo: "Patrimônio Líquido", natureza: "Credora" },
+    { nome: "RESERVA ESTATUTÁRIA", grupo: "Patrimônio Líquido", natureza: "Credora" },
+    { nome: "RESERVA DE CONTINGÊNCIAS", grupo: "Patrimônio Líquido", natureza: "Credora" },
+    { nome: "AJUSTE DE AVALIAÇÃO PATRIMONIAL (AAP)", grupo: "Patrimônio Líquido", natureza: "Ambas" },
+    { nome: "PREJUÍZOS ACUMULADOS", grupo: "Patrimônio Líquido", natureza: "Devedora" },
 
-    // --- RESULTADO (DRE) ---
-    { nome: "Receita de Vendas", grupo: "Receita", natureza: "Credora" },
-    { nome: "Receita de Juros Ativos", grupo: "Receita", natureza: "Credora" }, [cite: 322]
-    { nome: "Receita de Reversão de PDD", grupo: "Receita", natureza: "Credora" },
-    { nome: "Ganho com Valorização (VJR)", grupo: "Receita", natureza: "Credora" }, [cite: 327]
-    { nome: "CMV (Custo da Mercadoria Vendida)", grupo: "Despesa", natureza: "Devedora" },
-    { nome: "Despesa com PDD / PCLD", grupo: "Despesa", natureza: "Devedora" },
-    { nome: "Despesa de Aluguel", grupo: "Despesa", natureza: "Devedora" },
-    { nome: "Perda por Desvalorização (Impairment)", grupo: "Despesa", natureza: "Devedora" } [cite: 54, 309]
+    // --- RESULTADO ---
+    { nome: "RECEITA DE VENDAS", grupo: "Receita", natureza: "Credora" },
+    { nome: "RECEITA DE JUROS ATIVOS", grupo: "Receita", natureza: "Credora" },
+    { nome: "RECEITA DE REVERSÃO DE PDD", grupo: "Receita", natureza: "Credora" },
+    { nome: "CMV", grupo: "Despesa", natureza: "Devedora" },
+    { nome: "DESPESA COM PDD / PCLD", grupo: "Despesa", natureza: "Devedora" },
+    { nome: "PERDA POR IMPAIRMENT", grupo: "Despesa", natureza: "Devedora" }
 ];
 
-let lancamentos = [];
-// ... resto do seu código
 let lancamentos = [];
 
 function toggleUnico(id, nome) {
@@ -100,7 +87,6 @@ function mascaraMoeda(i) {
     validarBalanco();
 }
 
-// FORMATAÇÃO MANUAL PARA NÃO DAR ERRO NO TABLET
 function formatarR$(num) {
     var n = num.toFixed(2).split('.');
     n[0] = n[0].split(/(?=(?:...)*$)/).join('.');
@@ -118,6 +104,7 @@ function cadastrarConta() {
 
 function atualizarInterfacePlano() {
     var lista = document.getElementById('listaPlanoContas'), dlist = document.getElementById('datalistContas');
+    if(!lista || !dlist) return;
     lista.innerHTML = ""; dlist.innerHTML = "";
     var grupos = ["Ativo Circulante", "Ativo Não Circulante", "Passivo Circulante", "Passivo Não Circulante", "Patrimônio Líquido", "Receita", "Despesa"];
     grupos.forEach(function(g) {
@@ -159,8 +146,8 @@ function validarBalanco() {
     inputsD.forEach(function(i){ tD += parseFloat(i.value.replace("R$ ","").replace(/\./g,"").replace(",",".")) || 0; });
     inputsC.forEach(function(i){ tC += parseFloat(i.value.replace("R$ ","").replace(/\./g,"").replace(",",".")) || 0; });
     var btn = document.getElementById('btnRegistrar');
-    if (tD > 0 && tD.toFixed(2) === tC.toFixed(2)) { btn.disabled = false; btn.style.backgroundColor = "var(--verde-sucesso)"; btn.innerText = "REGISTRAR"; }
-    else { btn.disabled = true; btn.style.backgroundColor = "var(--vermelho-erro)"; btn.innerText = "DIFERENÇA D/C"; }
+    if (tD > 0 && tD.toFixed(2) === tC.toFixed(2)) { btn.disabled = false; btn.style.backgroundColor = "#27ae60"; btn.innerText = "REGISTRAR"; }
+    else { btn.disabled = true; btn.style.backgroundColor = "#e74c3c"; btn.innerText = "DIFERENÇA D/C"; }
 }
 
 function registrarDiario() {
@@ -182,6 +169,7 @@ function estornar(id) { lancamentos.forEach(function(l){ if(l.idFato === id) l.e
 
 function atualizarLivros() {
     var corpoD = document.getElementById('corpoDiario'), corpoB = document.getElementById('corpoBalancete'), quadro = document.getElementById('quadroRazonetes');
+    if(!corpoD || !corpoB || !quadro) return;
     corpoD.innerHTML = ""; corpoB.innerHTML = ""; quadro.innerHTML = "";
     var dadosR = {};
     lancamentos.forEach(function(l) {
@@ -197,8 +185,8 @@ function atualizarLivros() {
         var cInf = planoContas.find(function(p){return p.nome === c;}) || {natureza: 'Devedora'};
         var isCred = (cInf.natureza === 'Credora' || cInf.natureza === 'Retificadora do Ativo');
         var sFinal = isCred ? (tC - tD) : (tD - tC);
-        var debH = dArr.map(function(v){ return '<div class="'+(isCred?'valor-subtrai':'valor-soma')+'">'+v.toFixed(2)+'</div>'; }).join('');
-        var creH = cArr.map(function(v){ return '<div class="'+(isCred?'valor-soma':'valor-subtrai')+'">'+v.toFixed(2)+'</div>'; }).join('');
+        var debH = dArr.map(function(v){ return '<div>'+v.toFixed(2)+'</div>'; }).join('');
+        var creH = cArr.map(function(v){ return '<div>'+v.toFixed(2)+'</div>'; }).join('');
         quadro.innerHTML += '<div class="razonete"><div class="t-head">'+c+'</div><div class="t-corpo"><div class="t-debito">'+debH+'</div><div class="t-credito">'+creH+'</div></div><div class="t-footer">S: '+formatarR$(sFinal)+'</div></div>';
         var valD = (!isCred) ? sFinal : 0; var valC = (isCred) ? sFinal : 0;
         corpoB.innerHTML += '<tr><td>'+c+'</td><td>'+formatarR$(valD)+'</td><td>'+formatarR$(valC)+'</td></tr>';
@@ -208,9 +196,13 @@ function atualizarLivros() {
 }
 
 function prepararNovoFato() { 
-    document.getElementById('dataLanc').value = ""; document.getElementById('historico').value = "";
-    document.getElementById('contas-debito').innerHTML = "<p><strong>DÉBITOS:</strong></p>"; document.getElementById('contas-credito').innerHTML = "<p><strong>CRÉDITOS:</strong></p>";
+    document.getElementById('dataLanc').value = ""; 
+    document.getElementById('contas-debito').innerHTML = "<p><strong>DÉBITOS:</strong></p>"; 
+    document.getElementById('contas-credito').innerHTML = "<p><strong>CRÉDITOS:</strong></p>";
     document.getElementById('btnProximo').style.display = "none";
     document.getElementById('btnRegistrar').style.display = "block";
     validarBalanco(); 
 }
+
+// Inicia o plano de contas na tela assim que o código carrega
+atualizarInterfacePlano();
