@@ -1,0 +1,74 @@
+<div class="container">
+    <h2>Gestão do Plano de Contas</h2>
+    <div style="margin-bottom: 20px; display: flex; flex-wrap: wrap; gap: 10px;">
+        <input type="text" id="nomeConta" class="input-clean" placeholder="NOME DA CONTA" style="width: 250px;">
+        <select id="grupoConta" class="input-clean">
+            <option value="" disabled selected>GRUPO...</option>
+            <option value="Ativo Circulante">Ativo Circulante</option>
+            <option value="Ativo Não Circulante">Ativo Não Circulante</option>
+            <option value="Passivo Circulante">Passivo Circulante</option>
+            <option value="Passivo Não Circulante">Passivo Não Circulante</option>
+            <option value="Patrimônio Líquido">Patrimônio Líquido</option>
+            <option value="Receita">Receita</option>
+            <option value="Despesa">Despesa</option>
+        </select>
+        <select id="naturezaConta" class="input-clean">
+            <option value="" disabled selected>NATUREZA...</option>
+            <option value="Devedora">Devedora</option>
+            <option value="Credora">Credora</option>
+            <option value="Retificadora do Ativo">Retificadora do Ativo (Credora)</option>
+            <option value="Retificadora do Passivo">Retificadora do Passivo (Devedora)</option>
+            <option value="Retificadora do PL">Retificadora do PL (Devedora)</option>
+        </select>
+        <button class="btn-padrao" onclick="cadastrarConta()">Cadastrar Conta</button>
+    </div>
+
+    <button class="btn-padrao" onclick="toggleUnico('secaoPlano', 'Plano de Contas')">Visualizar Plano de Contas</button>
+    <div id="secaoPlano" class="secao-ocultavel"><div id="listaPlanoContas"></div></div>
+
+    <hr style="margin: 30px 0;">
+
+    <h2>Lançamentos no Diário</h2>
+    <div class="linha-lancamento">
+        <input type="text" id="dataLanc" class="input-clean" placeholder="DATA" maxlength="10" onkeyup="mascaraData(this)" style="width: 130px;">
+        <input type="text" id="historico" class="input-clean" placeholder="HISTÓRICO DO FATO..." style="flex-grow: 1;">
+    </div>
+
+    <div id="contas-debito"><p><strong>DÉBITOS:</strong></p></div>
+    <button class="btn-padrao" onclick="adicionarLinha('contas-debito')">+ Adicionar Débito</button>
+    
+    <div id="contas-credito" style="margin-top: 20px;"><p><strong>CRÉDITOS:</strong></p></div>
+    <button class="btn-padrao" onclick="adicionarLinha('contas-credito')">+ Adicionar Crédito</button>
+    
+    <div style="margin-top: 35px;">
+        <button id="btnRegistrar" class="btn-registrar" onclick="registrarDiario()" disabled>DIFERENÇA D/C</button>
+        <button id="btnProximo" class="btn-proximo" onclick="prepararNovoFato()">PRÓXIMO FATO / NOVO LANÇAMENTO</button>
+    </div>
+
+    <hr style="margin: 30px 0;">
+
+    <h2>Relatórios e Livros</h2>
+    <button class="btn-padrao" onclick="toggleUnico('secaoRazao', 'Livro Razão')">Visualizar Livro Razão</button>
+    <div id="secaoRazao" class="secao-ocultavel"><div id="quadroRazonetes" class="grid-razao"></div></div>
+
+    <button class="btn-padrao" onclick="toggleUnico('secaoDiario', 'Livro Diário')">Visualizar Livro Diário</button>
+    <div id="secaoDiario" class="secao-ocultavel">
+        <table>
+            <thead><tr><th>DATA</th><th>CONTA</th><th>D/C</th><th>VALOR</th><th>AÇÃO</th></tr></thead>
+            <tbody id="corpoDiario"></tbody>
+        </table>
+    </div>
+
+    <button class="btn-padrao" onclick="toggleUnico('secaoBalancete', 'Balancete')">Visualizar Balancete</button>
+    <div id="secaoBalancete" class="secao-ocultavel">
+        <table>
+            <thead><tr><th>CONTA</th><th>SALDO DEVEDOR</th><th>SALDO CREDOR</th></tr></thead>
+            <tbody id="corpoBalancete"></tbody>
+            <tfoot><tr id="totalBalancete" style="font-weight:bold; background:#eee;"></tr></tfoot>
+        </table>
+    </div>
+</div>
+</div> <datalist id="datalistContas"></datalist>
+    <script src="script.js"></script>
+</body>
+</html>
